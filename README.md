@@ -17,7 +17,7 @@ Their git repositories at compile time are included in
 ~~~bash
 # From 2020-05-27-raspios-buster-lite-armhf.zip
 apt-get update
-apt-get install -y git 
+apt-get install -y git bzip2
 t=`mktemp -d`
 cd $t
 # make sure to have ample space (>5G) here!
@@ -27,7 +27,7 @@ rm -f rpi-linux-aufs5.tar.bz2.split*
 tar -xjf rpi-linux-aufs5.tar.bz2
 cd linux
 make modules_install
-make headers install
+make headers_install
 export KERNEL=kernel7
 cp /boot/$KERNEL.img /boot/$KERNEL-backup.img
 cp arch/arm/boot/zImage /boot/$KERNEL.img
